@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SLIPERZ</title>
+    <link rel="icon" type="logo" href="./Images/Logo.png" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <nav class="navbar" aria-label="Main navigation">
+      <div class="nav-brand">
+        <img src="./Images/Logo.png" alt="Logo" class="nav-logo" />
+        <span class="nav-text">SLIPERZ</span>
+        <button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="nav-links">
+          <svg class="nav-slipper" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M12 28c-4-1-5-5-4-9l3-10c1-5 5-7 9-6s6 5 4 10l-4 10c-2 4-5 6-8 5Z" />
+            <path d="m10 14 6-4 7 7M16 10l2-5" />
+            <path d="m25 3 1-2m2 6 2-1" />
+          </svg>
+        </button>
+        <div class="nav-links" id="nav-links">
+          <a href="#" class="nav-link">Login</a>
+          <a href="#" class="nav-link">Genesis</a>
+          <a href="#" class="nav-link">Shop</a>
+          <a href="index.html" class="nav-link">Home</a>
+        </div>
+
+      </div>
+    </nav>
+    <main class="main-body">
+      <img src="./Images/main.png" alt="girl wearing a slipper" />
+      <div class="hero-copy">
+        <h1 class="para-main">SLIPERZ</h1>
+        <div class="para">~Designed for Her~</div>
+        <div class="sub-adding">
+          Welcome to Sliperz – Where Comfort Meets Style! At Sliperz,
+        </div>
+        <p class="main-summary">
+          We believe every step deserves comfort, confidence, and a touch of
+          elegance. Our collection of trendy and stylish women's slippers is
+          designed to complement your everyday lifestyle, bringing together
+          fashion, comfort, and affordability. Whether you're relaxing at home,
+          heading out for a casual day, or completing your favorite outfit,
+          Sliperz has the perfect pair for every occasion. Step into comfort.
+          Walk with confidence. Shine with Sliperz!
+        </p>
+      </div>
+    </main>
+    <script>
+      const toggle = document.querySelector('.nav-toggle');
+      const links = document.querySelector('.nav-links');
+      function closeMenu() {
+        toggle.setAttribute('aria-expanded', 'false');
+        toggle.setAttribute('aria-label', 'Open navigation');
+      }
+      toggle.addEventListener('click', () => {
+        const open = toggle.getAttribute('aria-expanded') !== 'true';
+        toggle.setAttribute('aria-expanded', String(open));
+        toggle.setAttribute('aria-label', open ? 'Close navigation' : 'Open navigation');
+      });
+      links.addEventListener('click', event => {
+        if (event.target.closest('a')) closeMenu();
+      });
+      document.addEventListener('click', event => {
+        if (!event.target.closest('.nav-brand')) closeMenu();
+      });
+      document.addEventListener('keydown', event => {
+        if (event.key === 'Escape' && toggle.getAttribute('aria-expanded') === 'true') {
+          closeMenu();
+          toggle.focus();
+        }
+      });
+    </script>
+  </body>
+</html>
