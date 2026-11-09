@@ -12,9 +12,26 @@
       <div class="nav-brand">
         <img src="./Images/Logo.png" alt="Logo" class="nav-logo" />
         <span class="nav-text">SLIPERZ</span>
-        <button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="nav-links">
-          <svg class="nav-slipper" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M12 28c-4-1-5-5-4-9l3-10c1-5 5-7 9-6s6 5 4 10l-4 10c-2 4-5 6-8 5Z" />
+        <button
+          class="nav-toggle"
+          type="button"
+          aria-label="Open navigation"
+          aria-expanded="false"
+          aria-controls="nav-links"
+        >
+          <svg
+            class="nav-slipper"
+            viewBox="0 0 32 32"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <path
+              d="M12 28c-4-1-5-5-4-9l3-10c1-5 5-7 9-6s6 5 4 10l-4 10c-2 4-5 6-8 5Z"
+            />
             <path d="m10 14 6-4 7 7M16 10l2-5" />
             <path d="m25 3 1-2m2 6 2-1" />
           </svg>
@@ -25,12 +42,12 @@
           <a href="#" class="nav-link">Shop</a>
           <a href="index.html" class="nav-link">Home</a>
         </div>
-
       </div>
     </nav>
     <main class="main-body">
       <img src="./Images/main.png" alt="girl wearing a slipper" />
       <div class="hero-copy">
+        <img src="./Images/Logo.png" alt="Sliperz logo" class="hero-logo" />
         <h1 class="para-main">SLIPERZ</h1>
         <div class="para">~Designed for Her~</div>
         <div class="sub-adding">
@@ -48,29 +65,82 @@
       </div>
     </main>
     <script>
-      const toggle = document.querySelector('.nav-toggle');
-      const links = document.querySelector('.nav-links');
+      const toggle = document.querySelector(".nav-toggle");
+      const links = document.querySelector(".nav-links");
       function closeMenu() {
-        toggle.setAttribute('aria-expanded', 'false');
-        toggle.setAttribute('aria-label', 'Open navigation');
+        toggle.setAttribute("aria-expanded", "false");
+        toggle.setAttribute("aria-label", "Open navigation");
       }
-      toggle.addEventListener('click', () => {
-        const open = toggle.getAttribute('aria-expanded') !== 'true';
-        toggle.setAttribute('aria-expanded', String(open));
-        toggle.setAttribute('aria-label', open ? 'Close navigation' : 'Open navigation');
+      toggle.addEventListener("click", () => {
+        const open = toggle.getAttribute("aria-expanded") !== "true";
+        toggle.setAttribute("aria-expanded", String(open));
+        toggle.setAttribute(
+          "aria-label",
+          open ? "Close navigation" : "Open navigation",
+        );
       });
-      links.addEventListener('click', event => {
-        if (event.target.closest('a')) closeMenu();
+      links.addEventListener("click", (event) => {
+        if (event.target.closest("a")) closeMenu();
       });
-      document.addEventListener('click', event => {
-        if (!event.target.closest('.nav-brand')) closeMenu();
+      document.addEventListener("click", (event) => {
+        if (!event.target.closest(".nav-brand")) closeMenu();
       });
-      document.addEventListener('keydown', event => {
-        if (event.key === 'Escape' && toggle.getAttribute('aria-expanded') === 'true') {
+      document.addEventListener("keydown", (event) => {
+        if (
+          event.key === "Escape" &&
+          toggle.getAttribute("aria-expanded") === "true"
+        ) {
           closeMenu();
           toggle.focus();
         }
       });
     </script>
+    <div class="shopping">
+      <h3 class="shopping-link">Elegence in Every Step</h3>
+      <p class="p-shopping">~Discover your perfect everyday pair~</p>
+      <a class="shopping-main" href="">SHOP COLLECTION</a>
+    </div>
+    <div class="why-choose-sliperz">
+      <h2 class="why-choose-main">Why Choose Sliperz?</h2>
+      <p class="why-choose-sub">A little elegance in every step</p>
+      <div class="img-why-choose">
+        <img class="why-choose-img" src="./Images/diamond.png" alt="diamond" />
+        <p class="why-choose-sub-1">Chic Designs</p>
+        <p class="why-choose-sub-2">Styles you'll love</p>
+        <img class="why-choose-img" src="./Images/sandals.png" alt="sandals" />
+        <p class="why-choose-sub-1">Everyday Comfort</p>
+        <p class="why-choose-sub-2">Made for your moments</p>
+        <img class="why-choose-img" src="./Images/heart.png" alt="heart" />
+        <p class="why-choose-sub-1">Affordable Fashion</p>
+        <p class="why-choose-sub-2">Beautiful looks for less</p>
+      </div>
+    </div>
+    <div class="sliperz">
+      <h2 class="sliperz-main">CHIC SOLES</h2>
+      <div class="sliperz-main-1">
+        <img src="./Images/slipper 1.png" alt="sliper 1" />
+        <h3 class="sliperz-h">Everyday Essentials</h3>
+        <p class="sliperz-p">
+          Keep it simple, stylish, and comfortable with our everyday flat
+          slippers. Perfect for shopping, casual outings, and relaxed weekends.
+        </p>
+      </div>
+      <div class="sliperz-main-2">
+        <img src="./Images/slipper 2.png" alt="sliper 2" />
+        <h3 class="sliperz-h">Chic & Classy</h3>
+        <p class="sliperz-p">
+          Add a touch of sophistication to your everyday look. Discover
+          fashionable flats with delicate detailing and timeless designs.
+        </p>
+      </div>
+      <div class="sliperz-main-3">
+        <img src="./Images/slipper4.png" alt="sliper 4" />
+        <h3 class="sliperz-h">Summer Breeze</h3>
+        <p class="sliperz-p">
+          Enjoy sunny days and holiday adventures with relaxed, easy-to-wear
+          flat slippers that complement your summer outfits.
+        </p>
+      </div>
+    </div>
   </body>
 </html>
