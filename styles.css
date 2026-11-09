@@ -147,13 +147,13 @@ img {
   font-size: 1.953cqw;
 }
 .sub-adding {
-  font-size: 1.302cqw;
+  font-size: clamp(16px, 1.302cqw, 20px);
   font-weight: bold;
 }
 .main-summary {
   max-width: 70ch;
   margin: 1.302cqw auto 0;
-  font-size: 0.895cqw;
+  font-size: clamp(14px, 0.895cqw, 16px);
   line-height: 1.8;
   text-align: center;
 }
@@ -211,7 +211,9 @@ img {
 }
 .shopping,
 .why-choose-sliperz {
-  margin-inline: 250px;
+  width: 100%;
+  max-width: 940px;
+  margin-inline: auto;
 }
 .shopping {
   text-align: center;
@@ -233,11 +235,15 @@ img {
   background-color: #ffe8c6;
   text-decoration: none;
   text-align: center;
-  font-size: small;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  border: 2px solid transparent;
+  color: #401b04;
   padding: 10px;
   border-radius: 15px;
-  border-bottom: 70px;
-  font-size: 11px;
+  font-size: 14px;
 }
 .shopping-main:hover {
   color: #ffe8c6;
@@ -246,7 +252,7 @@ img {
 }
 
 /* Keep the hero readable when the desktop overlay becomes too narrow. */
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .main-body {
     aspect-ratio: auto;
     gap: 0;
@@ -398,11 +404,14 @@ img {
   grid-column: 1 / -1;
   text-align: center;
 }
-.sliperz > div {
+.sliperz-products {
+  display: contents;
+}
+.sliperz-products > div {
   min-width: 0;
   overflow-wrap: break-word;
 }
-.sliperz > div > img {
+.sliperz-products > div > img {
   display: block;
   width: calc(100% - 40px);
   aspect-ratio: 1 / 1;
@@ -443,4 +452,55 @@ img {
   font-size: 12px;
   padding: 10px;
   margin-top: 0;
+}
+
+/* Swipe through a single row of cards on mobile. */
+@media (max-width: 768px) {
+  .sliperz {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .sliperz-products {
+    display: flex;
+    gap: 16px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding-bottom: 12px;
+  }
+  .sliperz-products > div {
+    flex: 0 0 82%;
+    scroll-snap-align: start;
+    border-radius: 24px;
+  }
+  .sliperz-products:focus-visible {
+    outline: 2px solid #ffe8c6;
+    outline-offset: 3px;
+  }
+}
+@media (max-width: 600px) {
+  .sliperz {
+    gap: 8px;
+  }
+  .sliperz-products > div {
+    border-radius: 16px;
+  }
+  .sliperz-products > div > img {
+    width: calc(100% - 12px);
+    margin: 6px;
+    border-radius: 12px;
+  }
+  .sliperz-h {
+    font-size: 13px;
+    letter-spacing: 0;
+    padding-inline: 6px;
+  }
+  .sliperz-p {
+    padding: 6px;
+  }
+  .why-choose-main {
+    font-size: 20px;
+    letter-spacing: 2px;
+  }
+  .why-choose-sub-1 {
+    font-size: 14px;
+  }
 }
