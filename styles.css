@@ -404,14 +404,11 @@ img {
   grid-column: 1 / -1;
   text-align: center;
 }
-.sliperz-products {
-  display: contents;
-}
-.sliperz-products > div {
+.sliperz > div {
   min-width: 0;
   overflow-wrap: break-word;
 }
-.sliperz-products > div > img {
+.sliperz > div > img {
   display: block;
   width: calc(100% - 40px);
   aspect-ratio: 1 / 1;
@@ -454,36 +451,15 @@ img {
   margin-top: 0;
 }
 
-/* Swipe through a single row of cards on mobile. */
-@media (max-width: 768px) {
-  .sliperz {
-    grid-template-columns: minmax(0, 1fr);
-  }
-  .sliperz-products {
-    display: flex;
-    gap: 16px;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    padding-bottom: 12px;
-  }
-  .sliperz-products > div {
-    flex: 0 0 82%;
-    scroll-snap-align: start;
-    border-radius: 24px;
-  }
-  .sliperz-products:focus-visible {
-    outline: 2px solid #ffe8c6;
-    outline-offset: 3px;
-  }
-}
+/* Keep the three product images aligned without crowding narrow screens. */
 @media (max-width: 600px) {
   .sliperz {
     gap: 8px;
   }
-  .sliperz-products > div {
+  .sliperz > div {
     border-radius: 16px;
   }
-  .sliperz-products > div > img {
+  .sliperz > div > img {
     width: calc(100% - 12px);
     margin: 6px;
     border-radius: 12px;
@@ -503,4 +479,42 @@ img {
   .why-choose-sub-1 {
     font-size: 14px;
   }
+}
+footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #ffe8c6;
+  opacity: 50%;
+  font-family: "Courier New", Courier, monospace;
+  font-weight: bold;
+}
+
+.social-footer {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.social-footer a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border: 2px solid #401b04;
+  border-radius: 50%;
+  color: #401b04;
+  text-decoration: none;
+}
+.social-footer svg {
+  width: 24px;
+  height: 24px;
+}
+.social-footer a:hover {
+  color: #ffe8c6;
+  background-color: #401b04;
+}
+.social-footer a:focus-visible {
+  outline: 3px solid #401b04;
+  outline-offset: 4px;
 }
