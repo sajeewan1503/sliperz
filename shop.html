@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shop | SLIPERZ</title>
+    <link rel="icon" type="image/png" href="./Images/Logo.png" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <nav class="navbar" aria-label="Main navigation">
+      <div class="nav-brand">
+        <img src="./Images/Logo.png" alt="Logo" class="nav-logo" />
+        <span class="nav-text">SLIPERZ</span>
+        <button
+          class="nav-toggle"
+          type="button"
+          aria-label="Open navigation"
+          aria-expanded="false"
+          aria-controls="nav-links"
+        >
+          <svg
+            class="nav-slipper"
+            viewBox="0 0 32 32"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <path
+              d="M12 28c-4-1-5-5-4-9l3-10c1-5 5-7 9-6s6 5 4 10l-4 10c-2 4-5 6-8 5Z"
+            />
+            <path d="m10 14 6-4 7 7M16 10l2-5" />
+            <path d="m25 3 1-2m2 6 2-1" />
+          </svg>
+        </button>
+        <div class="nav-links" id="nav-links">
+          <!-- <a href="#" class="nav-link">Login</a> -->
+          <a href="about.html" class="nav-link">Genesis</a>
+          <!-- <a href="#" class="nav-link">Shop</a> -->
+          <a href="index.html" class="nav-link">Home</a>
+        </div>
+      </div>
+    </nav>
+    <div class="shopping-page">
+      <img
+        class="shopping-page-img"
+        src="./Images/shopping cart img.png"
+        alt="shopping cart image test"
+      />
+      <h2 class="shopping-page-main">COMING SOON!!!</h2>
+      <h3 class="shopping-page-main-1">SOMETHING BEAUTIFUL IS ON ITS WAY!</h3>
+      <p class="shopping-page-main-2">
+        We're getting ready to bring you a beautiful collection of trendy
+        slippers, elegant flats, and stylish sandals.
+      </p>
+      <p class="shopping-page-main-2">
+        Your perfect pair is just around the corner!
+      </p>
+    </div>
+    <main aria-label="Shop collection"></main>
+    <footer>
+      <div class="social-footer" aria-label="Social media">
+        <a
+          href="https://facebook.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Facebook (opens in a new tab)"
+        >
+          <svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor">
+            <path
+              d="M14 22v-9h3l.5-4H14V7c0-1.2.4-2 2-2h2V1.4A25 25 0 0 0 15 1c-3 0-5 1.8-5 5v3H7v4h3v9z"
+            />
+          </svg>
+        </a>
+        <a
+          href="https://instagram.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Instagram (opens in a new tab)"
+        >
+          <svg
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <rect x="3" y="3" width="18" height="18" rx="5" />
+            <circle cx="12" cy="12" r="4" />
+            <circle
+              cx="17.5"
+              cy="6.5"
+              r="1"
+              fill="currentColor"
+              stroke="none"
+            />
+          </svg>
+        </a>
+        <a
+          href="https://tiktok.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="TikTok (opens in a new tab)"
+        >
+          <svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor">
+            <path
+              d="M16 2h-4v13a3 3 0 1 1-3-3v-4a7 7 0 1 0 7 7V8a10 10 0 0 0 6 2V6a6 6 0 0 1-6-4z"
+            />
+          </svg>
+        </a>
+      </div>
+      <p>&copy; 2026 | SLIPERZ. All rights reserved.</p>
+    </footer>
+    <script>
+      const toggle = document.querySelector(".nav-toggle");
+      const links = document.querySelector(".nav-links");
+      function closeMenu() {
+        toggle.setAttribute("aria-expanded", "false");
+        toggle.setAttribute("aria-label", "Open navigation");
+      }
+      toggle.addEventListener("click", () => {
+        const open = toggle.getAttribute("aria-expanded") !== "true";
+        toggle.setAttribute("aria-expanded", String(open));
+        toggle.setAttribute(
+          "aria-label",
+          open ? "Close navigation" : "Open navigation",
+        );
+      });
+      links.addEventListener("click", (event) => {
+        if (event.target.closest("a")) closeMenu();
+      });
+      document.addEventListener("click", (event) => {
+        if (!event.target.closest(".nav-brand")) closeMenu();
+      });
+      document.addEventListener("keydown", (event) => {
+        if (
+          event.key === "Escape" &&
+          toggle.getAttribute("aria-expanded") === "true"
+        ) {
+          closeMenu();
+          toggle.focus();
+        }
+      });
+    </script>
+  </body>
+</html>
