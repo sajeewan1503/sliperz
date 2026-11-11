@@ -60,7 +60,6 @@ body {
   width: 100%;
   max-width: 1440px;
   margin-inline: auto;
-  opacity: 70%;
 }
 img {
   max-width: 100%;
@@ -141,7 +140,16 @@ img {
   outline: 3px solid #401b04;
   outline-offset: 3px;
 }
+.nav-link,
+.nav-toggle {
+  -webkit-tap-highlight-color: transparent;
+}
+.nav-link:focus:not(:focus-visible),
+.nav-toggle:focus:not(:focus-visible) {
+  outline: none;
+}
 .main-body {
+  opacity: 70%;
   container-type: inline-size;
   aspect-ratio: 3 / 2;
   display: grid;
