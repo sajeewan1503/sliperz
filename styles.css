@@ -449,15 +449,18 @@ img {
   opacity: 50%;
   text-align: center;
 }
+.sliperz-cards {
+  display: contents;
+}
 .sliperz-main {
   grid-column: 1 / -1;
   text-align: center;
 }
-.sliperz > div {
+.sliperz-cards > div {
   min-width: 0;
   overflow-wrap: break-word;
 }
-.sliperz > div > img {
+.sliperz-cards > div > img {
   display: block;
   width: calc(100% - 40px);
   aspect-ratio: 1 / 1;
@@ -500,15 +503,38 @@ img {
   margin-top: 0;
 }
 
-/* Keep the three product images aligned without crowding narrow screens. */
+/* Show one full-width collection at a time on mobile. */
+@media (max-width: 768px) {
+  .sliperz {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .sliperz-cards {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 100%;
+    gap: 16px;
+    min-width: 0;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+  }
+  .sliperz-cards > div {
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+  }
+  .sliperz-cards:focus-visible {
+    outline: 2px solid #ffe8c6;
+    outline-offset: 4px;
+  }
+}
+
 @media (max-width: 600px) {
   .sliperz {
     gap: 8px;
   }
-  .sliperz > div {
+  .sliperz-cards > div {
     border-radius: 16px;
   }
-  .sliperz > div > img {
+  .sliperz-cards > div > img {
     width: calc(100% - 12px);
     margin: 6px;
     border-radius: 12px;
@@ -697,7 +723,27 @@ footer {
   }
 
   footer {
-    padding: 20px 12px;
+    padding: 12px 10px;
+    font-size: 11px;
+    line-height: 1.4;
     overflow-wrap: break-word;
+  }
+
+  footer p {
+    margin: 8px 0 0;
+  }
+
+  .social-footer {
+    gap: 8px;
+  }
+
+  .social-footer a {
+    width: 36px;
+    height: 36px;
+  }
+
+  .social-footer svg {
+    width: 18px;
+    height: 18px;
   }
 }
